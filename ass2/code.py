@@ -62,7 +62,7 @@ def viterbi(line):
     pi[0,'*','*'] = 1
     tags = []
 
-    for i in xrange(1,l+1):
+    for i in xrange(1,l):
         if i >=1 :
             w = unigram
         if i >=2 :
@@ -106,6 +106,10 @@ def viterbi(line):
     return tags
 
 
-print unigram
 
+for line in open('train.txt','r').readlines():
+    myline = line.split()
+    #I have to find a tag seq which maximises the probability
+    tag_seq = viterbi(myline)
+    #print(tag_seq)
     
